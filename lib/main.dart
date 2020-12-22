@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tripplanner/screens/login_screen.dart';
+
+import './screens/home_screen.dart';
+import './screens/login_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,6 +20,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (ctx) => LoginScreen(),
+        HomeScreen.routeName: (ctx) => HomeScreen(),
       },
     );
   }

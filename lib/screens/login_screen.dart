@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:tripplanner/screens/home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
@@ -74,7 +75,10 @@ class LoginScreen extends StatelessWidget {
                                 'Login',
                                 style: TextStyle(color: Colors.white),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.of(context)
+                                    .pushReplacementNamed(HomeScreen.routeName);
+                              },
                             ),
                           ),
                           SizedBox(width: 20),
