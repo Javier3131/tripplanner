@@ -16,13 +16,13 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               children: [
                 TravelCardWidget(
+                  'https://travelcravingsdotcom1.files.wordpress.com/2018/04/1024px-plaza-libertad-san-salvador.png',
                   'San Salvador',
-                  'https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/World_Trade_Center_San_Salvador.jpg/1920px-World_Trade_Center_San_Salvador.jpg',
                   '22/12/2020',
                 ),
                 TravelCardWidget(
-                    'Roatan',
                     'https://upload.wikimedia.org/wikipedia/commons/5/58/Westbay2106.jpg',
+                    'Roatan',
                     '02/02/2021'),
               ],
             ),

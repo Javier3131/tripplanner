@@ -13,60 +13,35 @@ class TravelCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(this.imageUrl);
     return InkWell(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Container(
-          // height: 200,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                Color(0xFF57C3AD),
-                Color(0xFF005660),
-              ],
-            ),
-            color: Colors.white,
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10),
-                topRight: Radius.circular(10),
-                bottomLeft: Radius.circular(10),
-                bottomRight: Radius.circular(10)),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.5),
-                spreadRadius: 5,
-                blurRadius: 7,
-                offset: Offset(0, 3), // changes position of shadow
-              ),
-            ],
-          ),
-          child: Column(
-            children: [
-              // Image.network(
-              //   this.imageUrl,
-              //   fit: BoxFit.cover,
-              // ),
-              Image.network(
-                this.imageUrl,
-                errorBuilder: (BuildContext context, Object exception,
-                    StackTrace stackTrace) {
-                  return Text('Your error widget...');
-                },
-              ),
-              Card(
-                child: Row(
-                  children: [
-                    Text(this.tripName),
-                    SizedBox(width: 2),
-                    Text(this.tripDate),
-                  ],
+      child: Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+        elevation: 4,
+        child: Column(
+          children: [
+            Container(
+              height: 150,
+              width: double.infinity,
+              child: ClipRRect(
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(15),
+                    topRight: Radius.circular(15)),
+                child: FadeInImage(
+                  placeholder: AssetImage('assets/images/tripplannerlogo.png'),
+                  image: NetworkImage(imageUrl),
+                  fit: BoxFit.cover,
                 ),
               ),
-            ],
-          ),
+            ),
+            Row(
+              children: [
+                Text(this.tripName),
+                SizedBox(width: 2),
+                Text(this.tripDate),
+              ],
+            ),
+          ],
         ),
       ),
     );
