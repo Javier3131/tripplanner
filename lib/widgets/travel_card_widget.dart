@@ -17,7 +17,6 @@ class TravelCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(this.imageUrl);
     return InkWell(
       onTap: () {},
       child: Padding(

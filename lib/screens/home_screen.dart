@@ -1,15 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tripplanner/widgets/custom_bottom_navigation_bar.dart';
 import 'package:tripplanner/widgets/travel_card_widget.dart';
-import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 
 class HomeScreen extends StatelessWidget {
-  final iconList = <IconData>[
-    Icons.brightness_5,
-    Icons.brightness_4,
-    Icons.brightness_6,
-    Icons.brightness_7,
-  ];
-
   static const routeName = '/home';
   @override
   Widget build(BuildContext context) {
@@ -47,46 +40,7 @@ class HomeScreen extends StatelessWidget {
           Icons.add,
         ),
       ),
-      // bottomNavigationBar: AnimatedBottomNavigationBar.builder(
-      //   itemCount: iconList.length,
-      //   tabBuilder: null,
-      //   // tabBuilder: (int index, bool isActive) {
-      //   //   final color = isActive ? HexColor('#FFA400') : Colors.white;
-      //   //   return Column(
-      //   //     mainAxisSize: MainAxisSize.min,
-      //   //     mainAxisAlignment: MainAxisAlignment.center,
-      //   //     children: [
-      //   //       Icon(
-      //   //         iconList[index],
-      //   //         size: 24,
-      //   //         color: color,
-      //   //       ),
-      //   //       const SizedBox(height: 4),
-      //   //       Padding(
-      //   //         padding: const EdgeInsets.symmetric(horizontal: 8),
-      //   //         child: AutoSizeText(
-      //   //           "brightness $index",
-      //   //           maxLines: 1,
-      //   //           style: TextStyle(color: color),
-      //   //           group: autoSizeGroup,
-      //   //         ),
-      //   //       )
-      //   //     ],
-      //   //   );
-      //   // },
-      //   backgroundColor: Colors.teal,
-      //   // activeIndex: _bottomNavIndex,
-      //   activeIndex: 1,
-      //   splashColor: Colors.teal,
-      //   // notchAndCornersAnimation: animation,
-      //   splashSpeedInMilliseconds: 300,
-      //   notchSmoothness: NotchSmoothness.defaultEdge,
-      //   gapLocation: GapLocation.center,
-      //   leftCornerRadius: 32,
-      //   rightCornerRadius: 32,
-      //   // onTap: (index) => setState(() => _bottomNavIndex = index),
-      //   onTap: null,
-      // ),
+      bottomNavigationBar: CustomBottomNavigationBar(),
     );
   }
 }
