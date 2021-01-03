@@ -5,12 +5,13 @@ import '../providers/custom_bottom_navigation_bar_model.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
   void _onItemTapped(BuildContext ctx, int selectedPage) {
+    print('selectedPage' + selectedPage.toString());
     final barData =
         Provider.of<CustomBottomNavigationBarModel>(ctx, listen: false);
     barData.setSelectedIndex(selectedPage);
-    BarItem barItem =
-        barData.barItems.firstWhere((i) => i.index == selectedPage);
-    Navigator.of(ctx).pushReplacementNamed(barItem.route);
+    // BarItem barItem =
+    //     barData.barItems.firstWhere((i) => i.index == selectedPage);
+    // Navigator.of(ctx).pushReplacementNamed(barItem.route);
   }
 
   @override

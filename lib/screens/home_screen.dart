@@ -1,41 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:tripplanner/widgets/custom_bottom_navigation_bar.dart';
-import 'package:tripplanner/widgets/travel_card_widget.dart';
+import 'package:provider/provider.dart';
 
-class HomeScreen extends StatelessWidget {
+import '../providers/custom_bottom_navigation_bar_model.dart';
+import '../screens/add_trip_screen.dart';
+import '../screens/past_trips_screen.dart';
+import '../screens/profile_screen.dart';
+import '../screens/trips_screen.dart';
+import '../widgets/custom_bottom_navigation_bar.dart';
+// import '../widgets/travel_card_widget.dart';
+
+class HomeScreen extends StatefulWidget {
   static const routeName = '/home';
+
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  Widget body = TripsScreen();
+  String currentRouteName = TripsScreen.routeName;
+
   @override
   Widget build(BuildContext context) {
+    body =
+        Provider.of<CustomBottomNavigationBarModel>(context, listen: true).body;
+
     return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(10),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Text('My trips'),
-                TravelCardWidget(
-                  'https://travelcravingsdotcom1.files.wordpress.com/2018/04/1024px-plaza-libertad-san-salvador.png',
-                  'Viaje Biometricos',
-                  'El Salvador',
-                  '6/01/2021',
-                  '10/01/2021',
-                ),
-                TravelCardWidget(
-                  'https://upload.wikimedia.org/wikipedia/commons/5/58/Westbay2106.jpg',
-                  'Vacaciones a Roatan!',
-                  'Honduras',
-                  '02/02/2021',
-                  '10/02/2021',
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
+      body: body,
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.teal,
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).pushNamed(AddTripScreen.routeName);
+        },
         child: Icon(
           Icons.add,
         ),

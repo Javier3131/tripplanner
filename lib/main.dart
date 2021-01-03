@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tripplanner/screens/past_trips_screen.dart';
-import 'package:tripplanner/screens/profile_screen.dart';
 
+import './screens/add_trip_screen.dart';
 import './providers/custom_bottom_navigation_bar_model.dart';
 import './screens/home_screen.dart';
 import './screens/login_screen.dart';
@@ -23,15 +22,16 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Trip Planner',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.teal,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         initialRoute: '/',
         routes: {
           '/': (ctx) => LoginScreen(),
           HomeScreen.routeName: (ctx) => HomeScreen(),
-          ProfileScreen.routeName: (ctx) => ProfileScreen(),
-          PastTripsScreen.routeName: (ctx) => PastTripsScreen(),
+          AddTripScreen.routeName: (ctx) => AddTripScreen(),
+          // ProfileScreen.routeName: (ctx) => ProfileScreen(),
+          // PastTripsScreen.routeName: (ctx) => PastTripsScreen(),
         },
       ),
     );
