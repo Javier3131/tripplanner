@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:tripplanner/providers/trips.dart';
 
 import './screens/add_trip_screen.dart';
 import './providers/custom_bottom_navigation_bar_model.dart';
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
             create: (ctx) => CustomBottomNavigationBarModel()),
+        ChangeNotifierProvider(create: (ctx) => Trips()),
       ],
       child: MaterialApp(
         title: 'Trip Planner',

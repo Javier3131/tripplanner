@@ -6,14 +6,11 @@ class TravelCardWidget extends StatelessWidget {
   final String countryName;
   final String tripStartDate;
   final String tripEndDate;
+  final Key key;
 
-  TravelCardWidget(
-    this.imageUrl,
-    this.tripName,
-    this.countryName,
-    this.tripStartDate,
-    this.tripEndDate,
-  );
+  TravelCardWidget(this.imageUrl, this.tripName, this.countryName,
+      this.tripStartDate, this.tripEndDate,
+      {this.key});
 
   @override
   Widget build(BuildContext context) {
