@@ -23,7 +23,7 @@ class TripsScreen extends StatelessWidget {
             final tripDocs = tripSnapshot.data.documents;
 
             return ListView.builder(
-              reverse: true,
+              // reverse: true,
               itemCount: tripDocs.length,
               itemBuilder: (ctx, index) => TravelCardWidget(
                 'https://travelcravingsdotcom1.files.wordpress.com/2018/04/1024px-plaza-libertad-san-salvador.png',

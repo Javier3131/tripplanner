@@ -9,17 +9,16 @@ class Trips with ChangeNotifier {
     return [..._trips];
   }
 
-  bool saveTrip(
+  void saveTrip(
       String tripName,
       String fromCity,
       String fromCountry,
       String destinationCity,
       String destinationCountry,
       DateTime startDate,
-      DateTime endDate) {
+      DateTime endDate) async {
     try {
       final t = Trip();
-      t.id = DateTime.now().toString();
       t.tripName = tripName;
       t.fromCity = fromCity;
       t.fromCountry = fromCountry;
@@ -27,7 +26,7 @@ class Trips with ChangeNotifier {
       t.destinationCountry = destinationCountry;
       t.tripStartDate = startDate;
       t.tripEndDate = endDate;
-      Firestore.instance.collection('trips').add({
+      final docReference = await Firestore.instance.collection('trips').add({
         'tripName': t.tripName,
         'fromCity': t.fromCity,
         'fromCountry': t.fromCountry,
@@ -38,13 +37,12 @@ class Trips with ChangeNotifier {
         'createdAt': Timestamp.now(),
       });
 
+      t.id = docReference.documentID;
+
       _trips.add(t);
       notifyListeners();
-
-      return true;
     } catch (e) {
       print(e);
-      return false;
     }
   }
 }
